@@ -1,4 +1,4 @@
-pollutantmean <-function(directory,  id =1:332) {
+findcompletecases <-function(directory,  id =1:332) {
   ##directory' is a character vector of length I indicating 
   ##the location of the CSV files 
   ##' pollutant' is a character vector of length I indicating 
@@ -16,26 +16,18 @@ pollutantmean <-function(directory,  id =1:332) {
   # data<-read.csv(directory);
   # head(data);
   
-  for (i in 1:length(nm))
-  {
-    print(nm[i])
-    data<-read.csv(nm[i])
-    filtereddata <-data[data$ID %in% id,]
-    v<-sum(complete.cases(filtereddata) )
-    
-   
-  }
+  
  j<-0
   completecases<-c()
   for (i in id) {
     data <- read.csv(nm[i])
     completedata <- sum(complete.cases(data))
-    completecases.
+    completecases<-c(completecases,completedata)
     
   }
   
-  mean<-mean(filtereddata[,pollutant],na.rm=TRUE)
-  print(mean)
+  cd<-list(a<-id,b<-completecases)
+  print(cd)
 }
 
 
