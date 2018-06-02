@@ -1,4 +1,4 @@
-pollutantmean <-function(directory, pollutant, id =1:332) {
+pollutantmean <-function(directory,  id =1:332) {
   ##directory' is a character vector of length I indicating 
   ##the location of the CSV files 
   ##' pollutant' is a character vector of length I indicating 
@@ -11,20 +11,31 @@ pollutantmean <-function(directory, pollutant, id =1:332) {
   ##the result! 
   ##setwd(directory)
   directory <- paste(getwd(),"/",'specdata',"/",sep="")
-  print(directory)
   #list all files with full names 
   nm <- list.files(path=directory,include.dirs = FALSE,full.names=TRUE)
   # data<-read.csv(directory);
   # head(data);
-  alldata<-read.csv(nm[1])
-  for (i in 2:length(nm))
+  
+  for (i in 1:length(nm))
   {
     print(nm[i])
     data<-read.csv(nm[i])
-    alldata<-rbind(alldata,data)
+    filtereddata <-data[data$ID %in% id,]
+    v<-sum(complete.cases(filtereddata) )
+    
    
   }
-  filtereddata <-alldata[alldata$ID %in% id,]
+ j<-0
+  completecases<-c()
+  for (i in id) {
+    data <- read.csv(nm[i])
+    completedata <- sum(complete.cases(data))
+    completecases.
+    
+  }
+  
   mean<-mean(filtereddata[,pollutant],na.rm=TRUE)
   print(mean)
 }
+
+
