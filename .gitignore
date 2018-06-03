@@ -1,5 +1,7 @@
 # Ignore Everything
 *
+# but not sub folders
+!*/
 #But not following
 !.gitignore
 !*.R
