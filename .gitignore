@@ -1,7 +1,14 @@
-# Ignore Everything
+# Ignore everything
 *
-# but not sub folders
+# Whitelist subdirectories
 !*/
-#But not following
+
+# Whitelist the following extensions
+!*.c
+!*.php
+!*.html
+!*.pdf
+!*.js
+!*.php
+!*.r
 !.gitignore
-!*.R
